@@ -7,18 +7,18 @@ function App() {
   const [newNote, setNewNote] = useState({ title: "", content: "" });
 
   const loadNotes = async () => {
-    const res = await axios.get("https://secure-notes-backend-production.up.railway.app/api/notes", { withCredentials: true });
+    const res = await axios.get("https://secure-notes-backend-production.up.railway.app/api/notes");
     setNotes(res.data);
   };
 
   const saveNote = async () => {
-    const res = await axios.post("https://secure-notes-backend-production.up.railway.app/api/notes", newNote, { withCredentials: true });
+    const res = await axios.post("https://secure-notes-backend-production.up.railway.app/api/notes", newNote);
     setNotes([...notes, res.data]);
     setNewNote({ title: "", content: "" });
   };
 
   const deleteNote = async (id) => {
-    await axios.delete(`https://secure-notes-backend-production.up.railway.app/api/notes/${id}`, { withCredentials: true });
+    await axios.delete(`https://secure-notes-backend-production.up.railway.app/api/notes/${id}`);
     setNotes(notes.filter(note => note.id !== id));
   };
 
@@ -28,7 +28,6 @@ function App() {
 
   return (
     <div className="container">
-      <a href="https://secure-notes-backend-production.up.railway.app/oauth2/authorization/google">Login with Google</a>
       <h1>Secure Notes</h1>
       <input 
         placeholder="Title" 
