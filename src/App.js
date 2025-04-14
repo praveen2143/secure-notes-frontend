@@ -28,6 +28,7 @@ function App() {
 
   return (
     <div className="container">
+      <a href="https://secure-notes-backend-production.up.railway.app/oauth2/authorization/google">Login with Google</a>
       <h1>Secure Notes</h1>
       <input 
         placeholder="Title" 
