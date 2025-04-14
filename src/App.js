@@ -7,18 +7,18 @@ function App() {
   const [newNote, setNewNote] = useState({ title: "", content: "" });
 
   const loadNotes = async () => {
-    const res = await axios.get("http://localhost:8080/api/notes", { withCredentials: true });
+    const res = await axios.get("https://secure-notes-backend-production.up.railway.app/api/notes", { withCredentials: true });
     setNotes(res.data);
   };
 
   const saveNote = async () => {
-    const res = await axios.post("http://localhost:8080/api/notes", newNote, { withCredentials: true });
+    const res = await axios.post("https://secure-notes-backend-production.up.railway.app/api/notes", newNote, { withCredentials: true });
     setNotes([...notes, res.data]);
     setNewNote({ title: "", content: "" });
   };
 
   const deleteNote = async (id) => {
-    await axios.delete(`http://localhost:8080/api/notes/${id}`, { withCredentials: true });
+    await axios.delete(`https://secure-notes-backend-production.up.railway.app/api/notes/${id}`, { withCredentials: true });
     setNotes(notes.filter(note => note.id !== id));
   };
 
